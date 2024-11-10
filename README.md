@@ -39,8 +39,33 @@ If any tests fail, the terminal will show detailed error messages so you can deb
 
 ## III. Running the Project via Docker
 ### 1. Docker and Docker Compose:
+**Setup environment**
+
+Create an `.env` file, then copy all key from `.env.docker` to `.env`
+
+Example:
+```text
+CONTAINER_NAME=udt_ecommerce_db
+PORT=5432:5432
+SPRINGBOOT_CONTAINER_NAME=udt_ecommerce_app
+
+URL_PREFIX=api/v1
+
+DB_USERNAME=postgres
+DB_PASSWORD=admin
+DB_HOST=localhost
+DB_PORT=5432
+DB_NAME=udt_ecommerce
+
+JWT_SECRET=9198c7305494e66746bf47dd5740f44198362f8bacdcabd664e23707698c55fc
+JWT_EXPIRATION=604800000
+
+DATA_INITIALIZE=true
+```
+
 **Dockerfile**
-  The Dockerfile is configured to run the Spring Boot application within a Docker container. It will:
+
+The Dockerfile is configured to run the Spring Boot application within a Docker container. It will:
 
   - Use the `openjdk:17-jdk-slim` base image.
   - Copy the built JAR file (`udt_ecommerce-0.0.1-SNAPSHOT.jar`) into the container.
